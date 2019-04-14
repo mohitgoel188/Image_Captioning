@@ -12,9 +12,9 @@ from keras import Model
 from keras.models import model_from_json
 import cv2
 from nltk.translate.bleu_score import sentence_bleu,corpus_bleu,SmoothingFunction
-from dataCleaningImages import preprocess
+from data_cleaning_images import preprocess
 
-with open('Flickr_Data/Processed/word2ind.json') as fh:
+with open('Data/Processed/word2ind.json') as fh:
     word2ind = json.load(fh)
 print('Loading Vocab...')
 ind2word = list(word2ind.keys())
@@ -30,10 +30,10 @@ beam_width = 3
 # iv3_model = Model(iv3_model.input, iv3_model.layers[-2].output)
 
 print('Loading Trained RNN Model...')
-with open('Flickr_Data/Saved Models/ImgCap_model40.json') as fh:
+with open('Data/Saved Models/ImgCap_model40.json') as fh:
     model_json = json.load(fh)
 model = model_from_json(model_json)
-model.load_weights('Flickr_Data/Saved Models/model_50.h5')
+model.load_weights('Data/Saved Models/model_50.h5')
 
 def greedySearch(encoded_img, reference=None, model=model):
     in_text = 'startseq'
@@ -92,7 +92,7 @@ def beamSearch(encoded_img, beam_width,reference=None, verbose=0, model=model):
     return predicted_seq
     
 def main():
-    basedir = 'Flickr_Data/Images'
+    basedir = 'Data/Images'
 
     if len(sys.argv)>1:
         verbose = int(sys.argv[1])
@@ -100,7 +100,7 @@ def main():
         verbose = 0
 
     print('Loading test set...')
-    with open('Flickr_Data/Processed/test.json') as fh:
+    with open('Data/Processed/test.json') as fh:
         test_set = json.load(fh)
 
     hypothesises_greed=[]

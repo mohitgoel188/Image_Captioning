@@ -1,0 +1,5 @@
+nltk==3.4
+opencv_python==4.0.1.24
+Keras==2.2.4
+numpy==1.16.2
+joblib==0.13.2

@@ -9,20 +9,20 @@ from keras.layers import LSTM, Embedding, TimeDistributed, Dense, RepeatVector,\
 from keras.optimizers import Adam, RMSprop
 from keras.layers import add
 import math
-from dataGenerator import data_generator
+from data_generator import data_generator
 
 max_cap_length = 35
 vocab_size = 1652
 embedding_dim = 200
 
 # For running locally
-train_images_path = 'Flickr_Data/Processed/encoded_trainImages.pkl'
-train_captions_path = 'Flickr_Data/Processed/train.json'
-test_images_path = 'Flickr_Data/Processed/encoded_testImages.pkl'
-test_captions_path = 'Flickr_Data/Processed/test.json'
-word2ind_path = 'Flickr_Data/Processed/word2ind.json'
-word_embedding_path = 'Flickr_Data/Processed/word_embedding.pkl'
-save_location = 'Flickr_Data/Saved Models/'
+train_images_path = 'Data/Processed/encoded_trainImages.pkl'
+train_captions_path = 'Data/Processed/train.json'
+test_images_path = 'Data/Processed/encoded_testImages.pkl'
+test_captions_path = 'Data/Processed/test.json'
+word2ind_path = 'Data/Processed/word2ind.json'
+word_embedding_path = 'Data/Processed/word_embedding.pkl'
+save_location = 'Data/Saved Models/'
 
 # # For running in google colab
 # from google.colab import drive
