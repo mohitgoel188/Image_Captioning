@@ -10,7 +10,7 @@ print('Loading Inception V3...')
 model=InceptionV3(weights='imagenet')
 model = Model(model.input, model.layers[-2].output)
 
-def preprocess(image_path, model=model):
+def preprocess(image_path=None,img=None, model=model):
     """ Convert all the images to size 299x299 as expected by the inception v3 model
         and returns the predicted feature vector of dim : (2048,1)
 
@@ -19,8 +19,9 @@ def preprocess(image_path, model=model):
                     from keras import Model
                     model=InceptionV3(weights='imagenet')
                     model = Model(model.input, model.layers[-2].output)
-    """            
-    img = cv2.imread(image_path)
+    """    
+    if image_path:        
+        img = cv2.imread(image_path)
     img = cv2.resize(img,(299,299),interpolation=cv2.INTER_LINEAR)
     img = np.expand_dims(img, axis=0)
     feature_vector = model.predict(preprocess_input(img))

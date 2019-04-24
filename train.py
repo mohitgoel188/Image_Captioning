@@ -39,10 +39,9 @@ save_location = 'Data/Saved Models/'
 # Model Construction
 
 # For Image input
-inputs2 = Input(shape=(max_cap_length,))
-se1 = Embedding(vocab_size, embedding_dim, mask_zero=True)(inputs2)
-se2 = Dropout(0.5)(se1)
-se3 = LSTM(256)(se2)
+inputs1 = Input(shape=(2048,))
+fe1 = Dropout(0.5)(inputs1)
+fe2 = Dense(256, activation='elu')(fe1)
 
 # For Captions
 inputs2 = Input(shape=(max_cap_length,))
