@@ -1,5 +1,5 @@
 joblib==0.13.2
-nltk==3.4
+nltk==3.4.5
 opencv_python==4.0.1.24
 Keras==2.2.4
 numpy==1.16.2
