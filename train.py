@@ -1,13 +1,13 @@
 import joblib
-from keras.preprocessing.sequence import pad_sequences
-from keras.utils import to_categorical
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.utils import to_categorical
 import json
 import numpy as np
-from keras import Input, layers, optimizers, Model
-from keras.layers import LSTM, Embedding, TimeDistributed, Dense, RepeatVector,\
+from tensorflow.keras import Input, layers, optimizers, Model
+from tensorflow.keras.layers import LSTM, Embedding, TimeDistributed, Dense, RepeatVector,\
                          Activation, Flatten, Reshape, concatenate, Dropout, BatchNormalization 
-from keras.optimizers import Adam, RMSprop
-from keras.layers import add
+from tensorflow.keras.optimizers import Adam, RMSprop
+from tensorflow.keras.layers import add
 import math
 from data_generator import data_generator
 
